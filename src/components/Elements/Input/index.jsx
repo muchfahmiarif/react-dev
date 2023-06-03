@@ -3,10 +3,10 @@ import Input from "./Input";
 
 const InputForm = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { label, name, type, placeholder } = props;
+  const { title, name, type, placeholder } = props;
   return (
     <div className="mb-6">
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={name}>{title}</Label>
       <Input name={name} type={type} placeholder={placeholder} />
     </div>
   );
