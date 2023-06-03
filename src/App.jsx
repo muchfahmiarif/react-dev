@@ -1,5 +1,6 @@
 import "./App.css";
 import Button from "./components/Elements/Button";
+import InputForm from "./components/Elements/Input";
 
 function App() {
   return (
@@ -9,14 +10,7 @@ function App() {
         <p className="font-medium text-slate-500 mb-8">Welcome, Please enter your details</p>
         <form action="">
           <div className="mb-6">
-            <label htmlFor="email" className="block text-slate-700 text-sm font-bold mb-2">
-              Email
-            </label>
-            <input
-              type="text"
-              className="text-sm border rounded w-full py-2 px-3 text-slate-700 placeholder:text-slate-700/60 mb-8"
-              placeholder="example@email.com"
-            />
+            <InputForm label="Email" type="email" placeholder="example@email.com" name="email" />
           </div>
           <div className="mb-6">
             <label htmlFor="password" className="block text-slate-700 text-sm font-bold mb-2">
