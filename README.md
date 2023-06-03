@@ -10,3 +10,7 @@ Documentations that used in this project :
 
 ## Components and Props
 Penamaan komponent di React menggunakan huruf kapital pada awal kata (CamelCase). Contoh: `HelloWorld.js`. Komponen dapat dibuat dengan menggunakan function atau class. Komponen dapat menerima props sebagai parameter. Props adalah data yang dikirimkan dari komponen lain. Props bersifat read-only, artinya tidak dapat diubah di komponen yang menerimanya. Contoh: `props.name`.
+
+Class Component tidak direkomendasikan lagi untuk membuat komponen. Class Component hanya digunakan untuk membuat komponen yang memiliki state (stateful component).
+
+Functional Component digunakan untuk membuat komponen yang tidak memiliki state (stateless component). Functional Component lebih ringkas dan mudah dibaca.
