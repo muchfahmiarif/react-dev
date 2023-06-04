@@ -3,9 +3,11 @@ import AuthLayouts from "../components/Layouts/AuthLayouts";
 
 const RegisterPage = () => {
   return (
-    <AuthLayouts title="Register">
-      <FormRegister />
-    </AuthLayouts>
+    <div className="flex justify-center bg-white min-h-screen items-center">
+      <AuthLayouts title="Register">
+        <FormRegister />
+      </AuthLayouts>
+    </div>
   );
 };
 

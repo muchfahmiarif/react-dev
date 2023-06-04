@@ -3,9 +3,11 @@ import AuthLayouts from "../components/Layouts/AuthLayouts";
 
 const LoginPage = () => {
   return (
-    <AuthLayouts title="Login">
-      <FormLogin />
-    </AuthLayouts>
+    <div className="flex justify-center bg-white min-h-screen items-center">
+      <AuthLayouts title="Login">
+        <FormLogin />
+      </AuthLayouts>
+    </div>
   );
 };
 
