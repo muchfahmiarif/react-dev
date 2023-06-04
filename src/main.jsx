@@ -5,11 +5,13 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./Pages/login.jsx";
 import RegisterPage from "./Pages/register.jsx";
+import ErrorPage from "./Pages/404.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <div>Hello World</div>,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/login",
