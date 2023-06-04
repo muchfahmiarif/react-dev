@@ -8,6 +8,7 @@ This project is a simple example of how to use React 18 with the new documentati
 3. [Vite](https://vitejs.dev/)
 4. [Tailwind CSS](https://tailwindcss.com/)
 5. [Atomic Design](https://atomicdesign.bradfrost.com/)
+6. [React Router](https://reactrouter.com/)
 
 ## Components and Props
 Penamaan komponent di React menggunakan huruf kapital pada awal kata (CamelCase). Contoh: `HelloWorld.js`. Komponen dapat dibuat dengan menggunakan function atau class. Komponen dapat menerima props sebagai parameter. Props adalah data yang dikirimkan dari komponen lain. Props bersifat read-only, artinya tidak dapat diubah di komponen yang menerimanya. Contoh: `props.name`.
@@ -46,3 +47,15 @@ src
 │   └── Pages (5)
 └── App.jsx
 ```
+
+## Conditional Rendering
+Conditional rendering dapat menggunakan 2 metode yang dengan ternary operation dan logical &&. Ternary operation digunakan untuk conditional rendering yang sederhana. Logical && digunakan untuk conditional rendering yang kompleks.
+Contoh pada ternary operation:
+```jsx
+{props.isLogin ? <p>Ini adalah halaman profile</p> : <p>Ini adalah halaman login</p>}
+```
+sedangkan contoh pada logical &&:
+```jsx
+{props.isLogin && <p>Ini adalah halaman profile</p>}
+```
+Pada ternary operation hanya dapat melakukan conditional rendering dengan 2 kondisi, sedangkan pada logical && jika kondisi bernilai false maka tidak akan merender apapun.
