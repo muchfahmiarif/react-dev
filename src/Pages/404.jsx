@@ -4,7 +4,7 @@ const ErrorPage = () => {
   const { error } = useRouteError();
   return (
     <div className="flex justify-center bg-white min-h-screen items-center flex-col">
-      <h1>Oops!</h1>
+      <h1 className="text-3xl font-semibold mb-3">Oops!</h1>
       <p>Sorry, an unexpected error has occured</p>
       <p>{error.statusText || error.message}</p>
     </div>

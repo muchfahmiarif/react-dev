@@ -6,6 +6,12 @@ const LoginPage = () => {
     <div className="flex justify-center bg-white min-h-screen items-center">
       <AuthLayouts title="Login">
         <FormLogin />
+        <p className="mt-3">
+          Don't have an account?{" "}
+          <a href="/register" className="text-blue-500">
+            Register
+          </a>
+        </p>
       </AuthLayouts>
     </div>
   );
