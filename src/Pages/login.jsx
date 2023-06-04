@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FormLogin from "../components/Fragments/FormLogin";
 import AuthLayouts from "../components/Layouts/AuthLayouts";
 
@@ -8,9 +9,9 @@ const LoginPage = () => {
         <FormLogin />
         <p className="mt-3">
           Don't have an account?{" "}
-          <a href="/register" className="text-blue-500">
+          <Link to="/register" className="text-blue-500">
             Register
-          </a>
+          </Link>
         </p>
       </AuthLayouts>
     </div>
