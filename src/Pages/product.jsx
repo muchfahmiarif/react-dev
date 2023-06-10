@@ -1,6 +1,6 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Button from "../components/Elements/Button";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -34,6 +34,13 @@ const products = [
 const email = localStorage.getItem("email");
 
 const Product = () => {
+  const [cart, setCart] = useState([
+    {
+      name: "Sepatu Lama",
+      qty: 1,
+    },
+  ]);
+
   const handleLogout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
@@ -47,14 +54,24 @@ const Product = () => {
           Logout
         </Button>
       </div>
-      <div className="flex justify-center gap-2">
-        {products.map((item) => (
-          <CardProduct key={item.id}>
-            <CardProduct.Header image={item.image} />
-            <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
-            <CardProduct.Footer>{item.price}</CardProduct.Footer>
-          </CardProduct>
-        ))}
+      <div className="flex justify-center gap-2 mt-2">
+        <div className="w-3/4 flex flex-wrap">
+          {products.map((item) => (
+            <CardProduct key={item.id}>
+              <CardProduct.Header image={item.image} />
+              <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
+              <CardProduct.Footer>{item.price}</CardProduct.Footer>
+            </CardProduct>
+          ))}
+        </div>
+        <div className="w-1/4">
+          <h1 className="text-3xl font-bold text-blue-600">Cart</h1>
+          <ul>
+            {cart.map((item) => (
+              <li key={item.name}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Fragment>
   );

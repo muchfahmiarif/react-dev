@@ -13,9 +13,9 @@ This project is a simple example of how to use React 18 with the new documentati
 ## Components and Props
 Penamaan komponent di React menggunakan huruf kapital pada awal kata (CamelCase). Contoh: `HelloWorld.js`. Komponen dapat dibuat dengan menggunakan function atau class. Komponen dapat menerima props sebagai parameter. Props adalah data yang dikirimkan dari komponen lain. Props bersifat read-only, artinya tidak dapat diubah di komponen yang menerimanya. Contoh: `props.name`.
 
-Class Component tidak direkomendasikan lagi untuk membuat komponen. Class Component hanya digunakan untuk membuat komponen yang memiliki state (stateful component).
+Class Component tidak direkomendasikan lagi untuk membuat komponen. Class Component hanya digunakan untuk membuat komponen yang memiliki state (stateful component = buat component menggunakan class).
 
-Functional Component digunakan untuk membuat komponen yang tidak memiliki state (stateless component). Functional Component lebih ringkas dan mudah dibaca.
+Functional Component digunakan untuk membuat komponen yang tidak memiliki state (stateless component = buat component dengan function). Functional Component lebih ringkas dan mudah dibaca.
 
 ## Atomic Design
 Atomic Design adalah metodologi untuk membuat desain sistem yang terdiri dari komponen-komponen yang dapat digunakan kembali. Atomic Design terdiri dari 5 level:
