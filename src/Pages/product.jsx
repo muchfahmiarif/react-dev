@@ -1,26 +1,30 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
 
-const product = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+const products = [
+  {
+    id: 1,
+    title: "Sepatu Lama",
+    price: 1000000,
+    image: shoes,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
+  },
+];
+
+const Product = () => {
   return (
     <div className="flex justify-center gap-2">
-      <CardProduct>
-        <CardProduct.Header image={shoes} />
-        <CardProduct.Body title="Sepatu Lama">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet
-          voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.
-        </CardProduct.Body>
-        <CardProduct.Footer>Rp 1.000.000</CardProduct.Footer>
-      </CardProduct>
-      <CardProduct>
-        <CardProduct.Header image={shoes} />
-        <CardProduct.Body title="Sepatu Baru">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error,
-        </CardProduct.Body>
-        <CardProduct.Footer>Rp 1.000.000</CardProduct.Footer>
-      </CardProduct>
+      {products.map((item) => (
+        <CardProduct key={item.id}>
+          <CardProduct.Header image={item.image} />
+          <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
+          <CardProduct.Footer>{item.price}</CardProduct.Footer>
+        </CardProduct>
+      ))}
     </div>
   );
 };
 
-export default product;
+export default Product;
