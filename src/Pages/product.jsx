@@ -5,7 +5,10 @@ const product = () => {
     <div className="flex justify-center">
       <CardProduct>
         <CardProduct.Header />
-        <CardProduct.Body></CardProduct.Body>
+        <CardProduct.Body title="Test">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet
+          voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.
+        </CardProduct.Body>
         <CardProduct.Footer />
       </CardProduct>
     </div>

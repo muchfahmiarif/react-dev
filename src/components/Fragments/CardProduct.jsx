@@ -24,15 +24,14 @@ const Header = () => {
   );
 };
 
-const Body = () => {
+const Body = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { children, title } = props;
   return (
     <div className="px-5 pb-5">
       <a href="#">
-        <h5 className="text-white text-xl font-semibold tracking-tight">Sepatu baru</h5>
-        <p className="text-sm text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam error ducimus, nam fugit dolor qui sit, nulla tempore officia odit amet
-          iusto quod ipsa id illum doloremque, esse nesciunt! Quis?
-        </p>
+        <h5 className="text-white text-xl font-semibold tracking-tight">{title}</h5>
+        <p className="text-sm text-white">{children}</p>
       </a>
     </div>
   );
