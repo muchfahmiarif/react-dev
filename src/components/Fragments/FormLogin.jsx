@@ -4,6 +4,8 @@ import Button from "../Elements/Button";
 const FormLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault(); // untuk mencegah reload
+    console.log(e.target.email.value);
+    console.log(e.target.password.value);
     console.log("anda mengklik tombol ini");
   };
   return (
