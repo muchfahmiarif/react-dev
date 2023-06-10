@@ -11,6 +11,22 @@ const products = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
   },
+  {
+    id: 2,
+    title: "Sepatu Baru",
+    price: 2000000,
+    image: shoes,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
+  },
+  {
+    id: 3,
+    title: "Sepatu Keren",
+    price: 3000000,
+    image: shoes,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
+  },
 ];
 
 const Product = () => {
