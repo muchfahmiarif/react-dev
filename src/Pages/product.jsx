@@ -60,7 +60,7 @@ const Product = () => {
             <CardProduct key={item.id}>
               <CardProduct.Header image={item.image} />
               <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
-              <CardProduct.Footer>{item.price}</CardProduct.Footer>
+              <CardProduct.Footer>Rp {item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</CardProduct.Footer>
             </CardProduct>
           ))}
         </div>
