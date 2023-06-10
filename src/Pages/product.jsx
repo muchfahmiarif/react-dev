@@ -30,10 +30,12 @@ const products = [
   },
 ];
 
+const email = localStorage.getItem("email");
+
 const Product = () => {
   return (
     <Fragment>
-      <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">Test</div>
+      <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">{email}</div>
       <div className="flex justify-center gap-2">
         {products.map((item) => (
           <CardProduct key={item.id}>
