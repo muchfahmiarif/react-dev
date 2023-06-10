@@ -1,5 +1,4 @@
 import Button from "../Elements/Button";
-import shoes from "../../../public/fashion-shoes-sneakers.jpg";
 
 const CardProduct = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -7,19 +6,23 @@ const CardProduct = (props) => {
   return <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">{children}</div>;
 };
 
-const Footer = () => {
+const Footer = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { children } = props;
   return (
     <div className="flex items-center justify-between px-5 pb-5">
-      <span className="text-xl font-bold text-white">Rp 1.000.000</span>
+      <span className="text-xl font-bold text-white">{children}</span>
       <Button color="bg-blue-600">Buy Now</Button>
     </div>
   );
 };
 
-const Header = () => {
+const Header = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { image } = props;
   return (
     <a href="#">
-      <img src={shoes} alt="product" className="p-8 rounded-t-lg" />
+      <img src={image} alt="product" className="p-8 rounded-t-lg" />
     </a>
   );
 };
