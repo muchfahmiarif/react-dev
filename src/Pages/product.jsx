@@ -1,6 +1,7 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
 import { Fragment } from "react";
+import Button from "../components/Elements/Button";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const products = [
@@ -33,9 +34,19 @@ const products = [
 const email = localStorage.getItem("email");
 
 const Product = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    window.location.href = "/login";
+  };
   return (
     <Fragment>
-      <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">{email}</div>
+      <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
+        {email}
+        <Button color={`ml-5 bg-black`} onClick={handleLogout}>
+          Logout
+        </Button>
+      </div>
       <div className="flex justify-center gap-2">
         {products.map((item) => (
           <CardProduct key={item.id}>
