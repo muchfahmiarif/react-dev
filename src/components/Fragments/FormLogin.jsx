@@ -9,6 +9,7 @@ const FormLogin = () => {
     console.log(e.target.email.value);
     console.log(e.target.password.value);
     console.log("anda mengklik tombol ini");
+    window.location.href = "/product";
   };
   return (
     <form onSubmit={handleLogin}>

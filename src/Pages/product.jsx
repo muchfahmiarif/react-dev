@@ -1,5 +1,6 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
+import { Fragment } from "react";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const products = [
@@ -31,15 +32,18 @@ const products = [
 
 const Product = () => {
   return (
-    <div className="flex justify-center gap-2">
-      {products.map((item) => (
-        <CardProduct key={item.id}>
-          <CardProduct.Header image={item.image} />
-          <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
-          <CardProduct.Footer>{item.price}</CardProduct.Footer>
-        </CardProduct>
-      ))}
-    </div>
+    <Fragment>
+      <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">Test</div>
+      <div className="flex justify-center gap-2">
+        {products.map((item) => (
+          <CardProduct key={item.id}>
+            <CardProduct.Header image={item.image} />
+            <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
+            <CardProduct.Footer>{item.price}</CardProduct.Footer>
+          </CardProduct>
+        ))}
+      </div>
+    </Fragment>
   );
 };
 
