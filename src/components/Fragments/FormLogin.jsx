@@ -1,6 +1,6 @@
 import InputForm from "../Elements/Input";
 import Button from "../Elements/Button";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const FormLogin = () => {
   const handleLogin = (e) => {
@@ -14,6 +14,10 @@ const FormLogin = () => {
   };
 
   const emailRef = useRef(null);
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   return (
     <form onSubmit={handleLogin}>
