@@ -36,7 +36,7 @@ const email = localStorage.getItem("email");
 const Product = () => {
   const [cart, setCart] = useState([
     {
-      name: "Sepatu Lama",
+      id: 1,
       qty: 1,
     },
   ]);
@@ -47,12 +47,12 @@ const Product = () => {
     window.location.href = "/login";
   };
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (id) => {
     // spread operator => ...
     setCart([
       ...cart,
       {
-        name: product,
+        id,
         qty: 1,
       },
     ]);
@@ -72,7 +72,7 @@ const Product = () => {
             <CardProduct key={item.id}>
               <CardProduct.Header image={item.image} />
               <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
-              <CardProduct.Footer handleAddToCart={handleAddToCart}>
+              <CardProduct.Footer id={item.id} handleAddToCart={handleAddToCart}>
                 {item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
               </CardProduct.Footer>
             </CardProduct>
@@ -82,7 +82,7 @@ const Product = () => {
           <h1 className="text-3xl font-bold text-blue-600">Cart</h1>
           <ul>
             {cart.map((item) => (
-              <li key={item.name}>{item.name}</li>
+              <li key={item.name}>{item.id}</li>
             ))}
           </ul>
         </div>

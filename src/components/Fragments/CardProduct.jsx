@@ -8,11 +8,11 @@ const CardProduct = (props) => {
 
 const Footer = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { children, handleAddToCart, name } = props;
+  const { children, handleAddToCart, id } = props;
   return (
     <div className="flex items-center justify-between px-5 pb-5">
       <span className="text-xl font-bold text-white">{children}</span>
-      <Button color="bg-blue-600" onClick={handleAddToCart(name)}>
+      <Button color="bg-blue-600" onClick={() => handleAddToCart(id)}>
         Buy Now
       </Button>
     </div>
