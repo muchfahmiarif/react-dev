@@ -69,6 +69,14 @@ const Product = () => {
   const totalPriceRef = useRef(null);
   console.log(totalPriceRef);
 
+  useEffect(() => {
+    if (cart.length > 0) {
+      totalPriceRef.current.style.display = "table-row";
+    } else {
+      totalPriceRef.current.style.display = "none";
+    }
+  }, [cart]);
+
   return (
     <Fragment>
       <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
