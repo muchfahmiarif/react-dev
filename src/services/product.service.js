@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const getProducts = () => {
+const getProducts = (callback) => {
   axios
     .get("https://fakestoreapi.com/products")
     .then((res) => {
-      console.log(res);
+      // console.log(res);
+      callback(res.data);
     })
     .catch((err) => {
       console.log(err);

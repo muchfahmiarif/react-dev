@@ -54,7 +54,9 @@ const Product = () => {
   }, [cart]);
 
   useEffect(() => {
-    getProducts();
+    getProducts((data) => {
+      console.log(data);
+    });
   }, []);
 
   const handleLogout = () => {
@@ -72,7 +74,7 @@ const Product = () => {
   };
 
   const totalPriceRef = useRef(null);
-  console.log(totalPriceRef);
+  // console.log(totalPriceRef);
 
   useEffect(() => {
     if (cart.length > 0) {
