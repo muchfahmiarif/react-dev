@@ -46,6 +46,18 @@ const Product = () => {
     localStorage.removeItem("password");
     window.location.href = "/login";
   };
+
+  const handleAddToCart = (product) => {
+    // spread operator => ...
+    setCart([
+      ...cart,
+      {
+        name: product,
+        qty: 1,
+      },
+    ]);
+  };
+
   return (
     <Fragment>
       <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
@@ -60,7 +72,9 @@ const Product = () => {
             <CardProduct key={item.id}>
               <CardProduct.Header image={item.image} />
               <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
-              <CardProduct.Footer>Rp {item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</CardProduct.Footer>
+              <CardProduct.Footer handleAddToCart={handleAddToCart}>
+                {item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+              </CardProduct.Footer>
             </CardProduct>
           ))}
         </div>
