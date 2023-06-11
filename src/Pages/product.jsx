@@ -1,6 +1,6 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -66,6 +66,9 @@ const Product = () => {
     }
   };
 
+  const totalPriceRef = useRef(null);
+  console.log(totalPriceRef);
+
   return (
     <Fragment>
       <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
@@ -114,7 +117,7 @@ const Product = () => {
                   </tr>
                 );
               })}
-              <tr>
+              <tr ref={totalPriceRef}>
                 <td colSpan="3">
                   <b>Total</b>
                 </td>
