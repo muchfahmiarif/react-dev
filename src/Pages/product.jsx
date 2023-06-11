@@ -2,6 +2,7 @@ import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
+import getProducts from "../services/product.service";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const products = [
@@ -51,6 +52,10 @@ const Product = () => {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("email");
