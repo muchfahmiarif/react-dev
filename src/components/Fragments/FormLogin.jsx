@@ -1,5 +1,6 @@
 import InputForm from "../Elements/Input";
 import Button from "../Elements/Button";
+import { useRef } from "react";
 
 const FormLogin = () => {
   const handleLogin = (e) => {
@@ -11,9 +12,12 @@ const FormLogin = () => {
     console.log("anda mengklik tombol ini");
     window.location.href = "/product";
   };
+
+  const emailRef = useRef(null);
+
   return (
     <form onSubmit={handleLogin}>
-      <InputForm title="Email" type="email" placeholder="example@email.com" name="email" />
+      <InputForm title="Email" type="email" placeholder="example@email.com" name="email" ref={emailRef} />
       <InputForm title="Password" type="password" placeholder="*****" name="password" />
       <Button color="bg-blue-600" type="submit">
         Log In
