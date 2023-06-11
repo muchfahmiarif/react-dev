@@ -1,6 +1,6 @@
 import CardProduct from "../components/Fragments/CardProduct";
 import shoes from "../../public/fashion-shoes-sneakers.jpg";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Button from "../components/Elements/Button";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -34,12 +34,25 @@ const products = [
 const email = localStorage.getItem("email");
 
 const Product = () => {
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      qty: 1,
-    },
-  ]);
+  const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setCart([
+      {
+        id: 1,
+        qty: 1,
+      },
+    ]);
+  }, []);
+
+  useEffect(() => {
+    const total = cart.reduce((prev, item) => {
+      const product = products.find((product) => product.id === item.id);
+      return prev + product.price * item.qty;
+    }, 0);
+    setTotalPrice(total);
+  }, [cart]);
 
   const handleLogout = () => {
     localStorage.removeItem("email");
@@ -103,6 +116,19 @@ const Product = () => {
                   </tr>
                 );
               })}
+              <tr>
+                <td colSpan="3">
+                  <b>Total</b>
+                </td>
+                <td>
+                  <b>
+                    {totalPrice.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    })}
+                  </b>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
