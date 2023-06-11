@@ -57,6 +57,7 @@ const Product = () => {
   useEffect(() => {
     getProducts((data) => {
       console.log(data);
+      setProducts(data);
     });
   }, []);
 
