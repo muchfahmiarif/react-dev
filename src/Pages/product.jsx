@@ -80,11 +80,34 @@ const Product = () => {
         </div>
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Cart</h1>
-          <ul>
+          {/* <ul>
             {cart.map((item) => (
               <li key={item.name}>{item.id}</li>
             ))}
-          </ul>
+          </ul> */}
+          <table className="text-left table-auto border-separate border-spacing-x-5 ">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((items) => {
+                const product = products.find((item) => item.id === items.id);
+                return (
+                  <tr key={product.id}>
+                    <td>{product.title}</td>
+                    <td>{items.qty}</td>
+                    <td>{product.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</td>
+                    <td>{(items.qty * product.price).toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </Fragment>
