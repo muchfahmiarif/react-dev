@@ -38,20 +38,18 @@ const Product = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    setCart([
-      {
-        id: 1,
-        qty: 1,
-      },
-    ]);
+    setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
 
   useEffect(() => {
-    const total = cart.reduce((prev, item) => {
-      const product = products.find((product) => product.id === item.id);
-      return prev + product.price * item.qty;
-    }, 0);
-    setTotalPrice(total);
+    if (cart.length > 0) {
+      const total = cart.reduce((prev, item) => {
+        const product = products.find((product) => product.id === item.id);
+        return prev + product.price * item.qty;
+      }, 0);
+      setTotalPrice(total);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
   }, [cart]);
 
   const handleLogout = () => {
