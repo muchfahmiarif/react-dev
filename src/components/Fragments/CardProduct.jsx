@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Button from "../Elements/Button";
 
 const CardProduct = (props) => {
@@ -24,7 +25,7 @@ const Header = (props) => {
   const { image } = props;
   return (
     <a href="#">
-      <img src={image} alt="product" className="p-8 rounded-t-lg" />
+      <img src={image} alt="product" className="p-8 rounded-t-lg h-60 w-full object-cover" />
     </a>
   );
 };
@@ -35,8 +36,8 @@ const Body = (props) => {
   return (
     <div className="px-5 pb-5 h-full">
       <a href="#">
-        <h5 className="text-white text-xl font-semibold tracking-tight">{title}</h5>
-        <p className="text-sm text-white">{children}</p>
+        <h5 className="text-white text-xl font-semibold tracking-tight">{title.substring(0, 20)} ...</h5>
+        <p className="text-sm text-white">{children.substring(0, 100)} ...</p>
       </a>
     </div>
   );

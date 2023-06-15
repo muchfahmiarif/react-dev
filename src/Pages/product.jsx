@@ -1,5 +1,5 @@
 import CardProduct from "../components/Fragments/CardProduct";
-import shoes from "../../public/fashion-shoes-sneakers.jpg";
+// import shoes from "../../public/fashion-shoes-sneakers.jpg";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import getProducts from "../services/product.service";
@@ -52,7 +52,7 @@ const Product = () => {
       setTotalPrice(total);
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-  }, [cart]);
+  }, [cart, products]);
 
   useEffect(() => {
     getProducts((data) => {
