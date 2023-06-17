@@ -98,7 +98,7 @@ const Products = () => {
           {products.length > 0 &&
             products.map((item) => (
               <CardProduct key={item.id}>
-                <CardProduct.Header image={item.image} />
+                <CardProduct.Header image={item.image} id={item.id} />
                 <CardProduct.Body title={item.title}>{item.description}</CardProduct.Body>
                 <CardProduct.Footer id={item.id} handleAddToCart={handleAddToCart}>
                   {item.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
