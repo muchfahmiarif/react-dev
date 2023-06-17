@@ -33,7 +33,7 @@ import { useLogin } from "../hooks/useLogin";
 //   },
 // ];
 
-const Product = () => {
+const Products = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
@@ -156,4 +156,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;
