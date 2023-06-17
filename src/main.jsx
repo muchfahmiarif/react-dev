@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/product/:id",
+    path: "/product/:id", // :id adalah url yang dinamis berdasarkan id
     element: <DetailProduct />,
   },
 ]);
