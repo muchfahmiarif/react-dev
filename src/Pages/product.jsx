@@ -43,7 +43,11 @@ const Product = () => {
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
-    setUsername(getUsername(token));
+    if (token) {
+      setUsername(getUsername(token));
+    } else {
+      window.location.href = "/login";
+    }
   }, []);
 
   useEffect(() => {
