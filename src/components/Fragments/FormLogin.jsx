@@ -1,9 +1,10 @@
 import InputForm from "../Elements/Input";
 import Button from "../Elements/Button";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import login from "../../services/auth.services";
 
 const FormLogin = () => {
+  const [loginFailed, setLoginFailed] = useState("");
   const handleLogin = (e) => {
     e.preventDefault(); // untuk mencegah reload
     // localStorage.setItem("email", e.target.email.value);
@@ -21,6 +22,7 @@ const FormLogin = () => {
         localStorage.setItem("token", res.token);
       } else {
         console.log(res.response.data);
+        setLoginFailed(res.response.data);
       }
     });
   };
@@ -38,6 +40,7 @@ const FormLogin = () => {
       <Button color="bg-blue-600" type="submit">
         Log In
       </Button>
+      <p className="text-red-500 text-center">{loginFailed}</p>
     </form>
   );
 };
