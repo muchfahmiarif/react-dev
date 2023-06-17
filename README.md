@@ -59,3 +59,19 @@ sedangkan contoh pada logical &&:
 {props.isLogin && <p>Ini adalah halaman profile</p>}
 ```
 Pada ternary operation hanya dapat melakukan conditional rendering dengan 2 kondisi, sedangkan pada logical && jika kondisi bernilai false maka tidak akan merender apapun.
+
+## State Management
+State Management adalah teknik untuk mengelola state secara global. State Management digunakan untuk mengatasi masalah yang disebabkan oleh React yang bersifat unidirectional. State Management dapat digunakan untuk mengelola state yang bersifat global, seperti data user yang sedang login, data keranjang belanja, dsb.
+Redux tidak hanya digunakan untuk react aja, tetapi bisa digunakan untuk framework lain seperti angular, vue, dll. React memiliki hooks seperti redux yaitu useContext.
+
+Perumpanaan menggunakan redux :
+![component with redux](https://miro.medium.com/v2/resize:fit:1400/1*87dJ5EB3ydD7_AbhKb4UOQ.png)
+![animation redux](https://paulonteri.com/images/thoughts/react-redux/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
+![animation redux with API](https://res.cloudinary.com/practicaldev/image/fetch/s--m5BdPzhS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/riadAin.gif)
+
+Redux memiliki 3 konsep utama yaitu store, action, dan reducer. 
+- Store adalah tempat menyimpan state secara global. 
+- Action adalah objek yang berisi informasi tentang apa yang terjadi.
+- Reducer adalah function yang mengubah state berdasarkan action yang dikirimkan.
+
+asdas
