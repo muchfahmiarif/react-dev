@@ -4,7 +4,12 @@ import { createStore } from "redux";
 const cartReducer = (
   state = {
     // state merupakan nilai awal
-    cart: [],
+    cart: [
+      {
+        id: 1,
+        name: "Sepatu",
+      },
+    ],
   },
   action
 ) => {
