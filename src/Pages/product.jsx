@@ -3,7 +3,6 @@ import CardProduct from "../components/Fragments/CardProduct";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import getProducts from "../services/product.service";
-import { getUsername } from "../services/auth.services";
 
 // eslint-disable-next-line react-refresh/only-export-components
 // const products = [
@@ -33,21 +32,13 @@ import { getUsername } from "../services/auth.services";
 //   },
 // ];
 
-const token = localStorage.getItem("token");
-
 const Product = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  const [username, setUsername] = useState("");
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
-    if (token) {
-      setUsername(getUsername(token));
-    } else {
-      window.location.href = "/login";
-    }
   }, []);
 
   useEffect(() => {
