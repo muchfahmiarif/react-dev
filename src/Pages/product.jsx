@@ -39,10 +39,11 @@ const Product = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
-    getUsername(token);
+    setUsername(getUsername(token));
   }, []);
 
   useEffect(() => {
@@ -91,7 +92,7 @@ const Product = () => {
   return (
     <Fragment>
       <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
-        {/* {email} */}
+        {username}
         <Button color={`ml-5 bg-black`} onClick={handleLogout}>
           Logout
         </Button>

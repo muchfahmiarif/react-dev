@@ -16,7 +16,7 @@ const login = (data, callback) => {
 
 export const getUsername = (token) => {
   const decoded = jwt_decode(token);
-  console.log(decoded);
+  return decoded.user;
 };
 
 export default login;
