@@ -5,7 +5,7 @@ const login = (data, callback) => {
     .post("https://fakestoreapi.com/auth/login", data)
     .then((res) => {
       console.log(res);
-      callback(true, res.token);
+      callback(true, res.data.token);
     })
     .catch((err) => {
       // console.log(err);

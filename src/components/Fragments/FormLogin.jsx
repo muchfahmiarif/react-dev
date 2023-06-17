@@ -19,7 +19,7 @@ const FormLogin = () => {
     };
     login(data, (status, res) => {
       if (status) {
-        localStorage.setItem("token", res.token);
+        localStorage.setItem("token", res);
       } else {
         console.log(res.response.data);
         setLoginFailed(res.response.data);
