@@ -20,7 +20,7 @@ const FormLogin = () => {
       if (status) {
         localStorage.setItem("token", res.token);
       } else {
-        console.log(res);
+        console.log(res.response.data);
       }
     });
   };
