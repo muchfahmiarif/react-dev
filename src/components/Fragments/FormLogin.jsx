@@ -16,7 +16,13 @@ const FormLogin = () => {
       username: e.target.username.value,
       password: e.target.password.value,
     };
-    login(data);
+    login(data, (status, res) => {
+      if (status) {
+        localStorage.setItem("token", res.token);
+      } else {
+        console.log(res);
+      }
+    });
   };
 
   const usernameRef = useRef(null);
