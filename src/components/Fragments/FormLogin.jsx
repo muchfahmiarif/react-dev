@@ -21,7 +21,7 @@ const FormLogin = () => {
       if (status) {
         // data yang ingin di simpan di local storage / database
         localStorage.setItem("token", res);
-        window.location.href = "/product";
+        window.location.href = "/products";
       } else {
         console.log(res.response.data);
         setLoginFailed(res.response.data);
