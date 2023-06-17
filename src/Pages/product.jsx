@@ -3,6 +3,7 @@ import CardProduct from "../components/Fragments/CardProduct";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import getProducts from "../services/product.service";
+import { useLogin } from "../hooks/useLogin";
 
 // eslint-disable-next-line react-refresh/only-export-components
 // const products = [
@@ -36,6 +37,7 @@ const Product = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
+  const username = useLogin();
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
