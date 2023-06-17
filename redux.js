@@ -29,6 +29,17 @@ const cartReducer = (
 const store = createStore(cartReducer);
 console.log("oncreate store : ", store.getState());
 
-// subscribe
+// subscribe untuk memantau perubahan state
+store.subscribe(() => {
+  console.log("STORE CHANGE : ", store.getState());
+});
 
 // dispatch
+const action1 = {
+  type: "ADD_TO_CART", // type harus sama dengan yang ada di reducer
+  payload: {
+    id: 2,
+    name: "Baju",
+  },
+};
+store.dispatch(action1);
