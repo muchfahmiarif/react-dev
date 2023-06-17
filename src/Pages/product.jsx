@@ -3,6 +3,7 @@ import CardProduct from "../components/Fragments/CardProduct";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import getProducts from "../services/product.service";
+import { getUsername } from "../services/auth.services";
 
 // eslint-disable-next-line react-refresh/only-export-components
 // const products = [
@@ -32,7 +33,7 @@ import getProducts from "../services/product.service";
 //   },
 // ];
 
-const email = localStorage.getItem("email");
+const token = localStorage.getItem("token");
 
 const Product = () => {
   const [cart, setCart] = useState([]);
@@ -41,6 +42,7 @@ const Product = () => {
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
+    getUsername(token);
   }, []);
 
   useEffect(() => {
@@ -56,8 +58,8 @@ const Product = () => {
 
   useEffect(() => {
     getProducts((data) => {
-      console.log(data);
       setProducts(data);
+      // console.log(data);
     });
   }, []);
 
@@ -89,7 +91,7 @@ const Product = () => {
   return (
     <Fragment>
       <div className="flex justify-end h-10 bg-blue-300 text-slate-800 items-center px-10">
-        {email}
+        {/* {email} */}
         <Button color={`ml-5 bg-black`} onClick={handleLogout}>
           Logout
         </Button>
