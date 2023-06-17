@@ -1,3 +1,5 @@
+import { createStore } from "redux";
+
 // reducer
 const cartReducer = (
   state = {
@@ -19,6 +21,8 @@ const cartReducer = (
 };
 
 // store
+const store = createStore(cartReducer);
+console.log("oncreate store : ", store.getState());
 
 // subscribe
 
