@@ -15,10 +15,18 @@ const cartReducer = createReducer([], (builder) => {
 });
 // kalo ingin tambah reducer (login reducer) maka buat lagi seperti di atas
 
+const login = createAction("CREATE_SESSION");
+const loginReducer = createReducer({ status: false }, (builder) => {
+  builder.addCase(login, (state, action) => {
+    state.status = true;
+  });
+});
+
 // Store
 const store = configureStore({
   // reducer: cartReducer, // => hanya menggunakan 1 reducer
   reducer: {
+    login: loginReducer,
     cart: cartReducer, // => menggunakan lebih dari 1 reducer
   },
 });
@@ -32,3 +40,4 @@ store.subscribe(() => {
 // Dispatch
 store.dispatch(addToCart({ id: 1, qty: 1 }));
 store.dispatch(addToCart({ id: 2, qty: 3 }));
+store.dispatch(login());
