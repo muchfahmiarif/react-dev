@@ -2,7 +2,9 @@ import toolkit from "@reduxjs/toolkit";
 
 const { configureStore, createAction, createReducer } = toolkit;
 
+// Action
 const addToCart = createAction("ADD_TO_CART"); // => action creator
+const login = createAction("CREATE_SESSION");
 
 // Reducer
 const cartReducer = createReducer([], (builder) => {
@@ -15,7 +17,6 @@ const cartReducer = createReducer([], (builder) => {
 });
 // kalo ingin tambah reducer (login reducer) maka buat lagi seperti di atas
 
-const login = createAction("CREATE_SESSION");
 const loginReducer = createReducer({ status: false }, (builder) => {
   builder.addCase(login, (state, action) => {
     state.status = true;
