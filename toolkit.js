@@ -24,7 +24,9 @@ const store = configureStore({
 });
 
 // Subscribe
+store.subscribe(() => {
+  console.log("STORE CHANGE : ", store.getState());
+});
 
 // Dispatch
-const action1 = addToCart({ id: 1, qty: 1 });
-store.dispatch(action1);
+store.dispatch(addToCart({ id: 1, qty: 1 }));
