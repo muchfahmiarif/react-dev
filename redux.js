@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { legacy_createStore } from "redux";
 
 // reducer
 const cartReducer = (
@@ -26,7 +26,7 @@ const cartReducer = (
 };
 
 // store
-const store = createStore(cartReducer);
+const store = legacy_createStore(cartReducer); // createStore sudah deprecated, sebaiknya gunakan configureStorex
 console.log("oncreate store : ", store.getState());
 
 // subscribe untuk memantau perubahan state
