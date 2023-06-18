@@ -1,5 +1,4 @@
 import toolkit from "@reduxjs/toolkit";
-import { build } from "vite";
 
 const { configureStore, createAction, createReducer } = toolkit;
 
@@ -27,11 +26,5 @@ const store = configureStore({
 // Subscribe
 
 // Dispatch
-const action1 = {
-  type: "ADD_TO_CART", // type harus sama dengan yang ada di reducer
-  payload: {
-    id: 2,
-    name: "Baju",
-  },
-};
+const action1 = addToCart({ id: 1, qty: 1 });
 store.dispatch(action1);
