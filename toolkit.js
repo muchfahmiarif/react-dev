@@ -4,12 +4,11 @@ import { build } from "vite";
 const { configureStore, createAction, createReducer } = toolkit;
 
 // Reducer
-const initialState = {
-  cart: [],
-};
-const cartReducer = createReducer(initialState, (builder) => {
+
+const cartReducer = createReducer([], (builder) => {
+  // array kosong merupakan cart reducer karena pada pilih reuducer di store, reducer yang dipilih adalah cart
   builder.addCase("ADD_TO_CART", (state, action) => {
-    state.cart.push(action.payload); // => cara ke 1 ; pilih state mana yang mau diubah
+    state.push(action.payload); // => cara ke 1 ; pilih state mana yang mau diubah
     // ada 2 cara; 1. push, 2. spread operator
     // state.cart = [...state.cart, action.payload]; => cara ke 2
   });
