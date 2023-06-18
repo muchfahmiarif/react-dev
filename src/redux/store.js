@@ -6,7 +6,10 @@ const store = configureStore({
     cart: cartReducer,
   },
 });
+console.log("oncreate store : ", store.getState());
 
-store.subscribe("store change : ", store.getState());
+store.subscribe(() => {
+  console.log("STORE CHANGE : ", store.getState());
+});
 
 export default store;
