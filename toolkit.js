@@ -22,6 +22,7 @@ const store = configureStore({
     cart: cartReducer, // => menggunakan lebih dari 1 reducer
   },
 });
+console.log("oncreate store : ", store.getState());
 
 // Subscribe
 store.subscribe(() => {
@@ -30,3 +31,4 @@ store.subscribe(() => {
 
 // Dispatch
 store.dispatch(addToCart({ id: 1, qty: 1 }));
+store.dispatch(addToCart({ id: 2, qty: 3 }));
