@@ -16,6 +16,12 @@ const cartReducer = createReducer(initialState, (builder) => {
 });
 
 // Store
+const store = configureStore({
+  // reducer: cartReducer, // => hanya menggunakan 1 reducer
+  reducer: {
+    cart: cartReducer, // => menggunakan lebih dari 1 reducer
+  },
+});
 
 // Subscribe
 
