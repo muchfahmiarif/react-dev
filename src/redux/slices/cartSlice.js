@@ -3,11 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cart: [],
+    data: [],
   },
   reducers: {
     addToCart: (state, action) => {
-      state.cart.push(action.payload);
+      const itemInCart = state.data.find((item) => item.id === action.payload.id);
+      if (itemInCart) {
+        itemInCart.qty += 1;
+        return;
+      } else {
+        state.data.push(action.payload);
+      }
     },
   },
 });
