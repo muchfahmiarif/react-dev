@@ -12,5 +12,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart } = cartSlice.actions; // export function addToCart
+export const { addToCart } = cartSlice.actions; // export action untuk memasukkan data ke dalam state di dalam store
 export default cartSlice.reducer; // export reducer

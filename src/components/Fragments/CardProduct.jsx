@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Button from "../Elements/Button";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 const CardProduct = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -10,11 +12,13 @@ const CardProduct = (props) => {
 
 const Footer = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { children, handleAddToCart, id } = props;
+  const { children, id } = props;
+  const dispatch = useDispatch();
+
   return (
     <div className="flex items-center justify-between px-5 pb-5">
       <span className="text-xl font-bold text-white">{children}</span>
-      <Button color="bg-blue-600" onClick={() => handleAddToCart(id)}>
+      <Button color="bg-blue-600" onClick={() => dispatch(addToCart({ id, qty: 1 }))}>
         Buy Now
       </Button>
     </div>
@@ -24,6 +28,7 @@ const Footer = (props) => {
 const Header = (props) => {
   // eslint-disable-next-line react/prop-types
   const { image, id } = props;
+
   return (
     <Link to={`/product/${id}`}>
       <img src={image} alt="product" className="p-8 rounded-t-lg h-60 w-full object-cover" />
@@ -34,6 +39,7 @@ const Header = (props) => {
 const Body = (props) => {
   // eslint-disable-next-line react/prop-types
   const { children, title } = props;
+
   return (
     <div className="px-5 pb-5 h-full">
       <a href="#">
