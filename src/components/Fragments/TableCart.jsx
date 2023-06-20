@@ -1,4 +1,13 @@
-const TableCart = () => {
+import { useSelector } from "react-redux";
+
+const TableCart = (props) => {
+  const { products } = props;
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const cart = useSelector((state) => {
+    state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
+  });
+
   return (
     <table className="text-left table-auto border-separate border-spacing-x-5 ">
       <thead>
