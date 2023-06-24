@@ -7,7 +7,7 @@ const TableCart = (props) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const cart = useSelector((state) => {
-    state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
+    return state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
   });
 
   useEffect(() => {
