@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkMode } from "../../context/DarkMode";
 
 /* eslint-disable react/prop-types */
 const AuthLayouts = (props) => {
   const { children, title, type } = props;
+  const { darkMode, setDarkMode } = useContext(DarkMode);
+
+  console.log(darkMode);
+
   return (
     <div className="w-full max-w-xs">
       <h1 className="text-3xl font-bold mb-2 text-blue-600">{title}</h1>
