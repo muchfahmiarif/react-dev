@@ -3,7 +3,6 @@ import { Fragment, useEffect, useState } from "react";
 import getProducts from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
 import TableCart from "../components/Fragments/TableCart";
-import Navbar from "../components/Layouts/Navbar";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +16,6 @@ const Products = () => {
 
   return (
     <Fragment>
-      <Navbar />
       <div className="flex justify-center gap-2 mt-2">
         <div className="w-3/4 flex flex-wrap">
           {products.length > 0 &&
