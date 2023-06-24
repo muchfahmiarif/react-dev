@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const TableCart = (props) => {
@@ -7,6 +9,26 @@ const TableCart = (props) => {
   const cart = useSelector((state) => {
     state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
   });
+
+  useEffect(() => {
+    if (products.length > 0 && cart.length > 0) {
+      const total = cart.reduce((prev, item) => {
+        const product = products.find((product) => product.id === item.id);
+        return prev + product.price * item.qty;
+      }, 0);
+      setTotalPrice(total);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, products]);
+
+  const totalPriceRef = useRef(null);
+  useEffect(() => {
+    if (cart.length > 0) {
+      totalPriceRef.current.style.display = "table-row";
+    } else {
+      totalPriceRef.current.style.display = "none";
+    }
+  }, [cart]);
 
   return (
     <table className="text-left table-auto border-separate border-spacing-x-5 ">

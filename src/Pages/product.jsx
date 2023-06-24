@@ -1,37 +1,9 @@
 import CardProduct from "../components/Fragments/CardProduct";
-// import shoes from "../../public/fashion-shoes-sneakers.jpg";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Button from "../components/Elements/Button";
 import getProducts from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
-
-// eslint-disable-next-line react-refresh/only-export-components
-// const products = [
-//   {
-//     id: 1,
-//     title: "Sepatu Lama",
-//     price: 1000000,
-//     image: shoes,
-//     description:
-//       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
-//   },
-//   {
-//     id: 2,
-//     title: "Sepatu Baru",
-//     price: 2000000,
-//     image: shoes,
-//     description:
-//       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
-//   },
-//   {
-//     id: 3,
-//     title: "Sepatu Keren",
-//     price: 3000000,
-//     image: shoes,
-//     description:
-//       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus id voluptate cum culpa possimus veniam, error, velit repudiandae amet voluptates laborum ullam beatae quasi nesciunt suscipit delectus facere praesentium at.",
-//   },
-// ];
+import TableCart from "../components/Fragments/TableCart";
 
 const Products = () => {
   const [cart, setCart] = useState([]);
@@ -57,7 +29,6 @@ const Products = () => {
   useEffect(() => {
     getProducts((data) => {
       setProducts(data);
-      // console.log(data);
     });
   }, []);
 
@@ -75,8 +46,6 @@ const Products = () => {
   };
 
   const totalPriceRef = useRef(null);
-  // console.log(totalPriceRef);
-
   useEffect(() => {
     if (cart.length > 0) {
       totalPriceRef.current.style.display = "table-row";
@@ -108,11 +77,7 @@ const Products = () => {
         </div>
         <div className="w-1/4">
           <h1 className="text-3xl font-bold text-blue-600">Cart</h1>
-          {/* <ul>
-            {cart.map((item) => (
-              <li key={item.name}>{item.id}</li>
-            ))}
-          </ul> */}
+          {/* <TableCart products={products} /> */}
           <table className="text-left table-auto border-separate border-spacing-x-5 ">
             <thead>
               <tr>
