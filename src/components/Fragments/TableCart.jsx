@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useTotalPriceDispatch } from "../../hooks/useTotal";
+import { useTotalPrice, useTotalPriceDispatch } from "../../hooks/useTotal";
 
 const TableCart = (props) => {
   const { products } = props;
   // const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useTotalPriceDispatch();
+  const totalPrice = useTotalPrice();
 
   const cart = useSelector((state) => {
     return state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
@@ -22,7 +23,7 @@ const TableCart = (props) => {
       dispatch({ type: "SET_TOTAL_PRICE", payload: { total } });
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-  }, [cart, products]);
+  }, [cart, products, dispatch]);
 
   const totalPriceRef = useRef(null);
   useEffect(() => {
@@ -62,7 +63,7 @@ const TableCart = (props) => {
           </td>
           <td>
             <b>
-              {totalPrice.toLocaleString("id-ID", {
+              {totalPrice.total.toLocaleString("id-ID", {
                 style: "currency",
                 currency: "IDR",
               })}

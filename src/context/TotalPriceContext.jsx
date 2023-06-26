@@ -17,9 +17,7 @@ const totalPriceReducer = (state, action) => {
   }
 };
 const TotalPriceProvider = ({ children }) => {
-  const [totalPrice, dispatch] = useReducer(totalPriceReducer, {
-    total: 0,
-  });
+  const [totalPrice, dispatch] = useReducer(totalPriceReducer, { total: 0 });
 
   return (
     <TotalPriceContext.Provider value={totalPrice}>
