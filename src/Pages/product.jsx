@@ -1,12 +1,15 @@
 import CardProduct from "../components/Fragments/CardProduct";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import getProducts from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
 import TableCart from "../components/Fragments/TableCart";
+import Navbar from "../components/Layouts/Navbar";
+import { DarkMode } from "../context/DarkMode";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   useLogin();
+  const { darkMode } = useContext(DarkMode);
 
   useEffect(() => {
     getProducts((data) => {
@@ -16,7 +19,8 @@ const Products = () => {
 
   return (
     <Fragment>
-      <div className="flex justify-center gap-2 mt-2">
+      <Navbar />
+      <div className={`flex justify-center gap-2 mt-2 ${darkMode ? "bg-slate-800" : "bg-slate-100"}`}>
         <div className="w-3/4 flex flex-wrap">
           {products.length > 0 &&
             products.map((item) => (
