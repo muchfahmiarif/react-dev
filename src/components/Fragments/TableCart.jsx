@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useTotalPriceDispatch } from "../../hooks/useTotal";
 
 const TableCart = (props) => {
   const { products } = props;
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useTotalPriceDispatch();
 
   const cart = useSelector((state) => {
     return state.cart.data; // cart diambil dari nama reducer dan data diambil dari nama state
@@ -16,7 +18,8 @@ const TableCart = (props) => {
         const product = products.find((product) => product.id === item.id);
         return prev + product.price * item.qty;
       }, 0);
-      setTotalPrice(total);
+      // setTotalPrice(total);
+      dispatch({ type: "SET_TOTAL_PRICE", payload: { total } });
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart, products]);
