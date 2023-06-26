@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer } from "react";
 
-const TotalPriceContext = createContext(null); // untuk menyimpan state
-const TotalPriceDispatchContext = createContext(null); // untuk menyimpan action
+export const TotalPriceContext = createContext(null); // untuk menyimpan state
+export const TotalPriceDispatchContext = createContext(null); // untuk menyimpan action
 
 const totalPriceReducer = (state, action) => {
   switch (action.type) {
